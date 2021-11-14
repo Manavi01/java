@@ -1,0 +1,47 @@
+package com.company;
+import java.util.*;
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        cal c=new cal();
+        int a=0;
+        int b=0;
+        while(true)
+        {
+            System.out.println("select the options: ");
+            System.out.println("1.add\n 2.sub\n3.mul\n 4.div\n 5.oddoreven\n 6.prime\n 7.square\n8.Exit");
+            Scanner sc = new Scanner(System.in);
+            int d = sc.nextInt();
+            switch (d) {
+                case 1:
+                    c.add();
+                    break;
+                case 2:
+                    c.sub();
+                    break;
+                case 3:
+                    c.mul();
+                    break;
+                case 4:
+                    c.div();
+                    break;
+                case 5:
+                    c.oddoreven();
+                    break;
+                case 6:
+                    c.prime();
+                    break;
+                case 7:
+                    c.square();
+                    break;
+                case 8:
+                    System.exit(0);
+                default:
+                    System.out.println("enter correct input");
+            }
+        }
+
+    }
+}
+

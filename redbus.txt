@@ -1,0 +1,85 @@
+package com.company;
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Customer implements CustomerInterface
+{
+    HashMap<String,HashMap> customer=new HashMap<String,HashMap>();
+    Scanner sc=new Scanner(System.in);
+
+    public void option()
+    {
+       while(true)
+       {
+           System.out.println("1:Book 2.Details 3.remove 4.exit,");
+           System.out.println("enter the option:");
+           int option = sc.nextInt();
+           switch (option)
+           {
+               case 1:
+                   Booktckt();
+                   break;
+               case 2:
+                   Detailstckt();
+                   break;
+               case 3:
+                   Remove();
+                   break;
+               case 4:
+                   System.exit(0);
+               default:
+                   System.out.println("enter crct output");
+           }
+
+       }
+    }
+
+    public void Booktckt()
+    {
+        System.out.println("enter the ticketid");
+        String Tid=sc.next();
+        HashMap<String,String> CustomerDetails=new HashMap<String,String>();
+        System.out.println("enter the customer name");
+        CustomerDetails.put("Name",sc.next());
+        System.out.println("enter from place");
+        CustomerDetails.put("From",sc.next());
+        System.out.println("enter to place");
+        CustomerDetails.put("To",sc.next());;
+        customer.put(Tid,CustomerDetails);
+    }
+    public void Detailstckt()
+    {
+        System.out.println("enter the Tid");
+        String Tid=sc.next();
+        if(customer.containsKey(Tid))
+        {
+            HashMap CustomerInfo=customer.get(Tid);
+            if(!CustomerInfo.isEmpty())
+            {
+                System.out.println("name =" +CustomerInfo.get("Name"));
+                System.out.println("From =" +CustomerInfo.get("From"));
+                System.out.println("To =" +CustomerInfo.get("To"));
+               // System.out.println("name =" +CustomerInfo.get("Name"));
+            }
+            else
+            {
+                System.out.println("enter valid ticket number");
+            }
+        }
+    }
+    public void Remove()
+    {
+        System.out.println("enter ticket id to remove");
+        String Tid=sc.next();
+        customer.remove(Tid);
+
+    }
+    public static void main(String[] args)
+    {
+	// write your code here
+        Customer c =new Customer();
+        c.option();
+
+    }
+}

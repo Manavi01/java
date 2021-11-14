@@ -1,0 +1,108 @@
+package com.company;
+import java.util.*;
+import java.awt.*;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+
+        //Arraylist
+
+     /*   List<String>list=new ArrayList<String>();
+        List<Integer>list1=new ArrayList<Integer>();
+        List<String>list2=new ArrayList<String>();
+        //insertion
+        list.add("mahesh");
+        list.add("sai");
+        list1.add(12);
+        list2.add("ganesh");
+        Iterator it=list.iterator();
+        while(it.hasNext())
+        {
+            System.out.print(it.next());
+        }
+       System.out.println(list1.get(0));
+       //concatenation
+        list.addAll(list2);
+        //modify
+        list1.set(0,20);
+        System.out.println(list1.get(0));
+        list.remove(0);
+        System.out.println(list.get(0));
+
+        while(it.hasNext())
+        {
+            System.out.print(it.next());
+        }
+
+        //LinkedList
+        List<String>list=new LinkedList<String>();
+        list.add("mahesh");
+        list.add("sai");
+        System.out.println(list.get(0));
+
+
+        //sets
+
+        Set<Integer>s=new LinkedHashSet<Integer>();
+        s.add(1);
+        s.add(2);
+        Set<Integer>s2=new LinkedHashSet<Integer>();
+        s2.add(3);
+        Iterator it= s.iterator();
+        while(it.hasNext())
+        {
+            System.out.println(it.next());
+        }
+
+        //concatenation
+        s.addAll(s2);
+        System.out.println(s);
+        //check whether element is present in set or not
+        System.out.println(s.contains(1));
+        //delete all the elements
+        s2.clear();
+        System.out.println(s2);
+
+
+        //Queue
+        Queue<Integer>q=new PriorityQueue<Integer>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        System.out.println(q);
+        //returns first element
+        System.out.println(q.poll());
+        //removes the first element
+        System.out.println(q.remove());
+
+        // stack
+        Stack<Integer>s=new Stack<Integer>();
+        s.add(1);
+        s.add(11);
+        s.add(2);
+        s.add(3);
+        System.out.println(s);
+
+        //maps
+        Map<Integer,String>map=new HashMap<Integer,String>();
+        map.put(1,"mahesh");
+        map.put(2,"sai");
+        System.out.println(map.get(1));
+        System.out.println(map.get("mahesh")); */
+        List<String> list=new ArrayList<String>();
+        List<String> list2=new ArrayList<String>();
+        list.add("a");
+        list.add("b");
+        list2.add("Mahesh");
+        list2.add("sai");
+       list.addAll(list2);
+       // list.addAll(list2,"vijay","ganesh");
+        System.out.println(list);
+
+
+    }
+
+}

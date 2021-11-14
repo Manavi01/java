@@ -1,0 +1,45 @@
+abstract class Car{
+    abstract void start();
+    abstract void elements();
+    abstract void stop();
+}
+
+class Swift extends Car{
+    void start()
+    {
+        System.out.println("starting the Swift car");
+    }
+    void elements()
+    {
+        System.out.println("the elemnts of Swift car");
+    }
+    void stop()
+    {
+        System.out.println("stoping the SWIFT car");
+    }
+}
+class Bmw extends Car{
+    void start()
+    {
+        System.out.println("starting the BMW car");
+    }
+    void elements()
+    {
+        System.out.println("Design is applied for the BMW car");
+    }
+    void stop()
+    {
+        System.out.println("stoping the BMW car");
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Car obj=new Swift();
+		Car obj1=new Bmw();
+		obj.start();
+		obj1.elements();
+		
+	}
+}

@@ -1,0 +1,96 @@
+import java.sql.*;
+import java.util.Scanner;
+
+import static java.lang.System.exit;
+
+public class JdbcConnection
+{
+    private static Statement stm = null;
+    private static ResultSet res = null;
+    private static Connection con = null;
+    static Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) throws SQLException
+    {
+
+        try {
+            String addr = "jdbc:mysql://localhost:3306/college";
+            String username = "root";
+            String password = "root";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(addr, username, password);
+            System.out.println("connection is established");
+
+            while (true) {
+                System.out.println("choose the options");
+                System.out.println("1.insert  2.delete 3.display 4.exit");
+                Scanner sc=new Scanner(System.in);
+                int a = sc.nextInt();
+                switch (a) {
+                    case 1:
+                        insert();
+                        break;
+                    case 2:
+                        delete();
+                        break;
+                    case 3:
+                        display();
+                        break;
+                    case 4:
+                        System.exit(0);
+                        break;
+                }
+            }
+
+        } catch (ClassNotFoundException exe) {
+        } catch (SQLException exe) {
+        }
+    }
+
+    public static void delete() throws SQLException {
+        stm = con.createStatement();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter usn to be deleted:");
+        int usn = sc.nextInt();
+        String sql = "DELETE FROM student WHERE usn='+usn'";
+        stm.executeUpdate(sql);
+        System.out.println("Row is  deleted");
+    }
+   public static void display() throws SQLException
+    {
+        Scanner sc=new Scanner(System.in);
+        int usn = sc.nextInt();
+
+        String sql3="select * from Student where usn="+usn+"";
+        ResultSet rs =stm.executeQuery(sql3);
+        while(rs.next())
+        {
+            System.out.println("Usn :"+res.getInt(1 )+"\tAge :"+res.getInt(2)+"\tName :"+res.getString(3 )+"\tBranch :"+res.getString(4 )+"\tPlace :"+res.getString(5 ));
+           
+        }
+    }
+
+    public static void insert() throws SQLException {
+       // String sql = "insert into student values('abc3',22,'mahesh','cse','hyderabad')";
+        System.out.println("enter usn:");
+        int usn=sc.nextInt();
+        System.out.println("enter age:");
+        int age=sc.nextInt();
+        System.out.println("enter name:");
+        String name=sc.next();
+        System.out.println("enter branch:");
+        String branch=sc.next();
+        System.out.println("enter place:");
+        String place=sc.next();
+        String sql2="insert into student values(?,?,?,?,?)";
+        PreparedStatement ptsm=con.prepareStatement(sql2);
+        ptsm.setInt(1,usn);
+        ptsm.setInt(2,age);
+        ptsm.setString(3,name);
+        ptsm.setString(4,branch);
+        ptsm.setString(5,place);
+
+        int i = ptsm.executeUpdate();
+        System.out.println("Inerstion done");
+
+    }
+}
